@@ -31,10 +31,10 @@ export const HomePage = () => {
                     className="shrink-0 relative w-48 h-48 md:w-64 md:h-64 rounded-[40px] p-2 glass-card"
                 >
                     <img
-                        src="/profilepic.jpeg"
+                        src="https://github.com/sarveshtalele/portfolio-website/blob/main/profilepic.jpeg"
                         alt="Sarvesh Talele"
                         className="w-full h-full object-cover rounded-[32px] bg-[#E0ECE9]"
-                        onError={(e) => { e.target.src = "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop" }}
+                        onError={(e) => { e.target.src = "https://github.com/sarveshtalele/portfolio-website/blob/main/profilepic.jpeg" }}
                     />
                 </motion.div>
 
