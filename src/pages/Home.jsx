@@ -63,8 +63,19 @@ export const HomePage = () => {
 
                     <motion.div
                         initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.7, duration: 1, ease: "easeOut" }}
-                        className="flex flex-wrap justify-center md:justify-start gap-3"
+                        className="flex flex-wrap justify-center md:justify-start gap-4"
                     >
+                        {/* Hiring? Primary CTA */}
+                        <motion.button
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            onClick={() => document.getElementById('hiring-section')?.scrollIntoView({ behavior: 'smooth' })}
+                            className="flex items-center gap-2 px-6 py-3 rounded-[20px] bg-[#0A4D44] text-white hover:bg-[#135B52] transition-all duration-300 shadow-md group border border-[#0A4D44]"
+                        >
+                            <Sparkles className="w-5 h-5 group-hover:rotate-12 transition-transform" />
+                            <span className="text-sm md:text-base font-bold">Hiring?</span>
+                        </motion.button>
+
                         {[
                             { icon: Linkedin, label: 'LinkedIn', url: 'https://www.linkedin.com/in/sarveshtalele' },
                             { icon: PenTool, label: 'Medium', url: 'https://medium.com/@sarveshtalele' },
@@ -169,7 +180,7 @@ export const HomePage = () => {
             </div>
 
             {/* --- AI PITCH GENERATOR --- */}
-            <div className="w-full mt-6">
+            <div id="hiring-section" className="w-full mt-6 scroll-mt-32">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, ease: "easeOut" }}
                     className="glass-card p-10 md:p-14 rounded-[32px] flex flex-col lg:flex-row items-center gap-10 lg:gap-16 hover:bg-white/50 transition-colors duration-700"
