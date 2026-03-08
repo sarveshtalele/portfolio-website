@@ -13,7 +13,7 @@ export default async function handler(request, response) {
 
     // 3. SECURE API KEY: This is read securely from Vercel's backend environment variables.
     // It is never exposed to the frontend browser.
-    const apiKey = process.env.GEMINI_API_KEY;
+    const apiKey = process.env.GEMINI_API_KEY || process.env.VITE_GEMINI_API_KEY;
 
     if (!apiKey) {
         return response.status(500).json({ error: 'API key is missing in server configuration.' });
