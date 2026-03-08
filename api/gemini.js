@@ -16,10 +16,10 @@ export default async function handler(request, response) {
     const apiKey = process.env.GEMINI_API_KEY || process.env.VITE_GEMINI_API_KEY;
 
     if (!apiKey) {
-        return response.status(500).json({ error: 'API key is missing in server configuration.' });
+        return response.status(500).json({ error: 'API key is missing in Vercel Environment Variables. Please add VITE_GEMINI_API_KEY to your Vercel project settings and Redeploy.' });
     }
 
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
     const payload = { contents: [{ parts: [{ text: prompt }] }] };
     if (systemInstruction) payload.systemInstruction = { parts: [{ text: systemInstruction }] };
 

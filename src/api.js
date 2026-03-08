@@ -45,7 +45,7 @@ export const callGemini = async (prompt, systemInstruction = "") => {
 // Original direct calling logic kept exclusively for local Vite `npm run dev` fallback 
 // if you aren't using `vercel dev` locally.
 const callGeminiDirectly = async (prompt, systemInstruction, apiKey) => {
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
     const payload = { contents: [{ parts: [{ text: prompt }] }] };
     if (systemInstruction) payload.systemInstruction = { parts: [{ text: systemInstruction }] };
 
