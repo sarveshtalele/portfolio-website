@@ -13,7 +13,7 @@ export const HomePage = () => {
     const generatePitch = async () => {
         if (!companyName.trim()) return;
         setGeneratingPitch(true);
-        const prompt = `As Sarvesh Talele (Full Stack Developer & Agentic AI Engineer), write a highly professional, 2-sentence pitch on why I would be an exceptional addition to the team at "${companyName}". First, independently consider ${companyName}'s current company vision, their recent public AI investments, and AI strategy. Then, explicitly match my skills (Agentic AI, RAG, LangChain, SAP BPS automation) to their specific AI vision in the pitch. Keep the final output to just the 2 confident, tailored sentences.`;
+        const prompt = `As Sarvesh Talele (Agentic AI Engineer), write a highly professional, 2-sentence pitch on why I would be an exceptional addition to the team at "${companyName}" with companyname in Bold letters. First, independently consider ${companyName}'s current company vision, their recent public AI investments, and AI strategy. Then, explicitly match my skills to their specific AI vision in the pitch. Keep the final output to just the 2 confident, tailored sentences.`;
         const result = await callGemini(prompt);
         setPitch(result.replace(/["*]/g, ''));
         setGeneratingPitch(false);
@@ -79,8 +79,8 @@ export const HomePage = () => {
                         {[
                             { icon: Linkedin, label: 'LinkedIn', url: 'https://www.linkedin.com/in/sarveshtalele' },
                             { icon: PenTool, label: 'Medium', url: 'https://medium.com/@sarveshtalele' },
-                            { icon: Instagram, label: 'Instagram', url: '#' },
-                            { icon: Newspaper, label: 'Newsletter', url: '#' }
+                            { icon: Instagram, label: 'Instagram', url: 'https://www.instagram.com/sarveshtalele' },
+                            { icon: Newspaper, label: 'Newsletter - Coming Soon', url: '#' }
                         ].map((link, i) => (
                             <a
                                 key={i} href={link.url} target="_blank" rel="noopener noreferrer"
