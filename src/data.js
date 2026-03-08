@@ -68,14 +68,12 @@ export const MOCK_CMS = {
             id: 1,
             title: 'How I built an Agentic System that runs my LinkedIn for free',
             desc: 'A deep dive into automating LinkedIn engagement using autonomous AI agents and LangChain.',
-            img: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=800&auto=format&fit=crop',
             link: 'https://medium.com/gitconnected/how-i-built-an-agentic-system-that-runs-my-linkedin-for-free-78cab68ec108'
         },
         {
             id: 2,
             title: 'I stopped using libraries and built TF-IDF from scratch to truly understand Retrieval',
             desc: 'Understanding the core mathematics of search and retrieval by building TF-IDF from the ground up.',
-            img: 'https://images.unsplash.com/photo-1555949963-aa79dcee981c?q=80&w=800&auto=format&fit=crop',
             link: 'https://medium.com/gitconnected/i-stopped-using-libraries-and-built-tf-idf-from-scratch-to-truly-understand-retrieval-a36b54db266f'
         }
     ],

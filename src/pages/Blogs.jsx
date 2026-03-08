@@ -18,22 +18,12 @@ export const BlogsPage = () => {
                         transition={{ delay: i * 0.15, duration: 0.8, ease: "easeOut" }}
                         className="glass-card rounded-[24px] md:rounded-[32px] flex flex-col hover:-translate-y-2 hover:bg-white/50 transition-colors duration-700 overflow-hidden group"
                     >
-                        {/* Blog Image */}
-                        <div className="w-full h-48 md:h-56 overflow-hidden relative">
-                            <img
-                                src={blog.img}
-                                alt={blog.title}
-                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-[#0A4D44]/40 to-transparent"></div>
-                        </div>
-
                         {/* Blog Content */}
-                        <div className="p-6 md:p-8 flex flex-col flex-1">
-                            <h3 className="text-xl md:text-2xl font-bold text-[#0A4D44] mb-3 leading-snug line-clamp-2">
+                        <div className="p-8 md:p-10 flex flex-col flex-1">
+                            <h3 className="text-2xl md:text-3xl font-bold text-[#0A4D44] mb-4 leading-snug">
                                 {blog.title}
                             </h3>
-                            <p className="text-sm md:text-base text-[#2C7A70] font-medium mb-6 line-clamp-2 leading-relaxed">
+                            <p className="text-base md:text-lg text-[#2C7A70] font-medium mb-8 leading-relaxed">
                                 {blog.desc}
                             </p>
 
