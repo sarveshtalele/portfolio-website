@@ -51,7 +51,7 @@ export const HomePage = () => {
                         initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3, duration: 1, ease: "easeOut" }}
                         className="text-xl md:text-2xl text-[#2C7A70] font-semibold tracking-tight mb-4"
                     >
-                        AI Engineer | Design & Solve AI Puzzles | HarvardX AI Certified
+                        AI Engineer | I Design & Solve AI Puzzles | HarvardX AI Certified
                     </motion.h2>
 
                     <motion.p
