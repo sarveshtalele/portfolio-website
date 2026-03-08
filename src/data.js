@@ -93,10 +93,7 @@ export const MOCK_CMS = {
         { text: 'Scikit-learn', value: 80 },
         { text: 'SQL', value: 82 },
         { text: 'FastAPI', value: 85 },
-        { text: 'React', value: 90 },
-        { text: 'Tailwind CSS', value: 88 },
-        { text: 'Robotics', value: 75 },
-        { text: 'Kinematics', value: 70 },
-        { text: 'SAP BPS', value: 85 }
+        { text: 'Agentic RAG', value: 90 },
+        { text: 'Azure Foundry SDK', value: 70 }
     ]
 };
