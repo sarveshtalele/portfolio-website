@@ -5,7 +5,7 @@ import { callGemini } from '../api';
 import { MOCK_CMS } from '../data';
 import { SectionHeader, AnimatedCounter } from '../components/Shared';
 
-export const HomePage = () => {
+export const HomePage = ({ navigate }) => {
     const [companyName, setCompanyName] = useState('');
     const [pitch, setPitch] = useState('');
     const [generatingPitch, setGeneratingPitch] = useState(false);
@@ -111,14 +111,21 @@ export const HomePage = () => {
                 {/* Top Row: 4 Metric Squares */}
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-8">
                     {[
-                        { label: 'AI Projects', val: MOCK_CMS.stats.aiProjects, icon: Briefcase, color: 'text-[#0A4D44]' },
-                        { label: 'Awards & Honors', val: MOCK_CMS.stats.awards, icon: Award, color: 'text-[#135B52]' },
-                        { label: 'Published Blogs', val: MOCK_CMS.stats.blogs, icon: PenTool, color: 'text-[#2C7A70]' },
-                        { label: 'Research Papers', val: MOCK_CMS.stats.researchPapers, icon: FileText, color: 'text-[#4A8B82]' }
+                        { label: 'AI Projects', val: MOCK_CMS.stats.aiProjects, icon: Briefcase, color: 'text-[#0A4D44]', route: 'projects' },
+                        { label: 'Awards & Honors', val: MOCK_CMS.stats.awards, icon: Award, color: 'text-[#135B52]', route: 'journey' },
+                        { label: 'Published Blogs', val: MOCK_CMS.stats.blogs, icon: PenTool, color: 'text-[#2C7A70]', route: 'blogs' },
+                        { label: 'Research Papers', val: MOCK_CMS.stats.researchPapers, icon: FileText, color: 'text-[#4A8B82]', route: 'knowledge' }
                     ].map((stat, i) => (
                         <motion.div
-                            key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.15, duration: 0.8, ease: "easeOut" }}
-                            className="glass-card p-4 md:p-8 rounded-[24px] md:rounded-[32px] aspect-square flex flex-col items-center justify-center text-center group hover:bg-white/60 transition-colors duration-700 relative"
+                            key={i}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: i * 0.15, duration: 0.8, ease: "easeOut" }}
+                            whileHover={{ scale: 1.02 }}
+                            whileTap={{ scale: 0.98 }}
+                            onClick={() => navigate(stat.route)}
+                            className="glass-card p-4 md:p-8 rounded-[24px] md:rounded-[32px] aspect-square flex flex-col items-center justify-center text-center group hover:bg-white/60 transition-all duration-700 relative cursor-pointer"
                         >
                             {/* BIG Number in Middle */}
                             <div className="text-4xl md:text-7xl font-black tracking-tight text-[#0A4D44] my-auto">
