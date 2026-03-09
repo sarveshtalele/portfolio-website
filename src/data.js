@@ -10,7 +10,7 @@ export const MOCK_CMS = {
         },
         {
             id: 2,
-            year: 'Dec 2019 - Jan 2020',
+            year: 'Dec 2019 - Jan 2020 ',
             title: 'Robotics Engineering Intern @ CEMS by Ministry of Shipping with Siemens Industry Software India Pvt Ltd',
             description: 'Trained and programmed industrial robotic cells (8-axis KUKA Robot) for precise manufacturing tasks including MIG welding and material handling.',
             tech: ['Robotics', 'Kinematics', 'KUKA SIM Pro', 'Manufacturing', 'NX11']
