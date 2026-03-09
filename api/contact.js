@@ -25,8 +25,11 @@ export default async function handler(req, res) {
             template_id: EMAILJS_TEMPLATE_ID,
             user_id: EMAILJS_PUBLIC_KEY,
             template_params: {
+                name: name,           // Matches {{name}} in your screenshot
+                email: email,          // Matches {{email}} in your screenshot
                 from_name: name,
                 from_email: email,
+                reply_to: email,
                 message: message
             }
         };
