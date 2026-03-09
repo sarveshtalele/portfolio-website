@@ -4,14 +4,14 @@ export const MOCK_CMS = {
         {
             id: 1,
             year: 'July 2022 - Present',
-            title: 'AI Engineer @ TCS',
+            title: 'System Engnieer, Role: AI Engineer @ TCS',
             description: 'Architecting enterprise-grade Agentic AI solutions for SAP BPS workflows. Building production-ready AI agents for SAP automation validated on real UI flows. Implemented Graph RAG for organizational knowledge using LangChain and built ML-driven ticket classification systems.',
             tech: ['Agentic AI', 'RAG', 'LLMs', 'Azure AI', 'LangChain', 'Python', 'FastAPI', 'Azure Foundry AI', 'Azure']
         },
         {
             id: 2,
-            year: 'Jan 2022 - June 2022',
-            title: 'Robotics Engineering Intern @ CEMS',
+            year: 'Dec 2019 - Jan 2020',
+            title: 'Robotics Engineering Intern @ CEMS by Ministry of Shipping with Siemens Industry Software India Pvt Ltd',
             description: 'Trained and programmed industrial robotic cells (8-axis KUKA Robot) for precise manufacturing tasks including MIG welding and material handling.',
             tech: ['Robotics', 'Kinematics', 'KUKA SIM Pro', 'Manufacturing', 'NX11']
         }
