@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Linkedin, PenTool, Instagram, Newspaper, Briefcase, Award, FileText, Sparkles, Code2 } from 'lucide-react';
+import { Linkedin, PenTool, Instagram, Newspaper, Briefcase, Award, FileText, Sparkles, Code2, Github } from 'lucide-react';
 import { callGemini } from '../api';
 import { MOCK_CMS } from '../data';
 import { SectionHeader, AnimatedCounter } from '../components/Shared';
@@ -76,6 +76,16 @@ export const HomePage = () => {
                             <span className="text-sm md:text-base font-bold">Hiring?</span>
                         </motion.button>
 
+                        <a
+                            href="https://github.com/sarveshtalele"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-2 px-6 py-3 rounded-[20px] bg-white/40 border border-white/60 text-[#0A4D44] hover:bg-white/80 hover:text-[#135B52] transition-all duration-300 shadow-sm backdrop-blur-md group"
+                        >
+                            <Github className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                            <span className="text-sm md:text-base font-bold">GitHub</span>
+                        </a>
+
                         {[
                             { icon: Linkedin, label: 'LinkedIn', url: 'https://www.linkedin.com/in/sarveshtalele' },
                             { icon: PenTool, label: 'Medium', url: 'https://medium.com/@sarveshtalele' },
@@ -108,19 +118,19 @@ export const HomePage = () => {
                     ].map((stat, i) => (
                         <motion.div
                             key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.15, duration: 0.8, ease: "easeOut" }}
-                            className="glass-card p-6 md:p-8 rounded-[32px] aspect-square flex flex-col items-center justify-center text-center group hover:bg-white/60 transition-colors duration-700 relative"
+                            className="glass-card p-4 md:p-8 rounded-[24px] md:rounded-[32px] aspect-square flex flex-col items-center justify-center text-center group hover:bg-white/60 transition-colors duration-700 relative"
                         >
                             {/* BIG Number in Middle */}
-                            <div className="text-6xl md:text-7xl font-black tracking-tight text-[#0A4D44] my-auto">
+                            <div className="text-4xl md:text-7xl font-black tracking-tight text-[#0A4D44] my-auto">
                                 <AnimatedCounter target={stat.val} />+
                             </div>
 
                             {/* Icon Bottom Left, Text Beside Icon */}
-                            <div className="flex flex-row items-center justify-start gap-3 w-full mt-auto pt-4 group-hover:-translate-y-1 transition-transform duration-500">
-                                <div className={`w-10 h-10 md:w-12 md:h-12 rounded-[14px] md:rounded-[18px] bg-white/50 backdrop-blur-md border border-white/60 flex items-center justify-center ${stat.color} group-hover:scale-110 group-hover:rotate-3 transition-transform duration-700 ease-out shadow-sm shrink-0`}>
-                                    <stat.icon className="w-5 h-5 md:w-6 md:h-6" />
+                            <div className="flex flex-col md:flex-row items-center justify-center md:justify-start gap-2 md:gap-3 w-full mt-auto pt-2 md:pt-4 group-hover:-translate-y-1 transition-transform duration-500">
+                                <div className={`w-8 h-8 md:w-12 md:h-12 rounded-[10px] md:rounded-[18px] bg-white/50 backdrop-blur-md border border-white/60 flex items-center justify-center ${stat.color} group-hover:scale-110 group-hover:rotate-3 transition-transform duration-700 ease-out shadow-sm shrink-0`}>
+                                    <stat.icon className="w-4 h-4 md:w-6 md:h-6" />
                                 </div>
-                                <div className="text-sm md:text-base text-[#2C7A70] font-bold tracking-wider uppercase text-left leading-tight">
+                                <div className="text-[10px] md:text-base text-[#2C7A70] font-bold tracking-wider uppercase text-center md:text-left leading-tight">
                                     {stat.label}
                                 </div>
                             </div>
