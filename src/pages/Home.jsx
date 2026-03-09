@@ -13,7 +13,7 @@ export const HomePage = () => {
     const generatePitch = async () => {
         if (!companyName.trim()) return;
         setGeneratingPitch(true);
-        const prompt = `As Sarvesh Talele (Agentic AI Engineer), write a highly professional, 2-sentence pitch on why I would be an exceptional addition to the team at "${companyName}" with companyname in Bold letters. First, independently consider ${companyName}'s current company vision, their recent public AI investments, and AI strategy. Then, explicitly match my skills to their specific AI vision in the pitch. Keep the final output to just the 2 confident, tailored sentences.`;
+        const prompt = `As Sarvesh Talele (AI Engineer), write a highly professional, 2-sentence pitch on why I would be an exceptional addition to the team at "${companyName}" with companyname in Bold letters. First, independently consider ${companyName}'s current company vision, their recent public AI investments, and AI strategy. Then, explicitly match my skills to their specific AI vision in the pitch. Keep the final output to just the 2 confident, tailored sentences.`;
         const result = await callGemini(prompt);
         setPitch(result.replace(/["*]/g, ''));
         setGeneratingPitch(false);
@@ -51,7 +51,7 @@ export const HomePage = () => {
                         initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3, duration: 1, ease: "easeOut" }}
                         className="text-xl md:text-2xl text-[#2C7A70] font-semibold tracking-tight mb-4"
                     >
-                        AI Engineer | I Design & Solve AI Puzzles | HarvardX AI Certified
+                        AI Engineer | I Design & Solve AI Puzzles | HarvardX AI Certified | Guinness World Record Holder
                     </motion.h2>
 
                     <motion.p
