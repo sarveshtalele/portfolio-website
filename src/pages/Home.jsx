@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Linkedin, PenTool, Instagram, Newspaper, Briefcase, Award, FileText, Sparkles, Code2, Github } from 'lucide-react';
+import { Linkedin, PenTool, Briefcase, Award, FileText, Sparkles, Code2, Github, Coffee } from 'lucide-react';
 import { callGemini } from '../api';
 import { MOCK_CMS } from '../data';
 import { SectionHeader, AnimatedCounter } from '../components/Shared';
@@ -51,14 +51,14 @@ export const HomePage = ({ navigate }) => {
                         initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3, duration: 1, ease: "easeOut" }}
                         className="text-xl md:text-2xl text-[#2C7A70] font-semibold tracking-tight mb-4"
                     >
-                        AI Engineer | I Design & Solve AI Puzzles | HarvardX AI Certified | Guinness World Record Holder
+                        AI Engineer | Claude Certified Architect | I Design & Solve AI Puzzles | HarvardX AI Certified | Guinness World Record Participant in Python
                     </motion.h2>
 
                     <motion.p
                         initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5, duration: 1, ease: "easeOut" }}
                         className="text-lg md:text-xl text-[#0A4D44] font-medium max-w-3xl leading-relaxed mb-8 opacity-80"
                     >
-                        I build real, production-grade AI systems, transforming complex enterprise puzzles into autonomous, measurable solutions.
+                        I burn tokens so you don't have to!!!
                     </motion.p>
 
                     <motion.div
@@ -88,9 +88,7 @@ export const HomePage = ({ navigate }) => {
 
                         {[
                             { icon: Linkedin, label: 'LinkedIn', url: 'https://www.linkedin.com/in/sarveshtalele' },
-                            { icon: PenTool, label: 'Medium', url: 'https://medium.com/@sarveshtalele' },
-                            { icon: Instagram, label: 'Instagram', url: 'https://www.instagram.com/sarveshtalele' },
-                            { icon: Newspaper, label: 'Newsletter - Coming Soon', url: '#' }
+                            { icon: PenTool, label: 'Medium', url: 'https://medium.com/@sarveshtalele' }
                         ].map((link, i) => (
                             <a
                                 key={i} href={link.url} target="_blank" rel="noopener noreferrer"
@@ -100,6 +98,14 @@ export const HomePage = ({ navigate }) => {
                                 <span className="text-xs md:text-sm font-bold">{link.label}</span>
                             </a>
                         ))}
+
+                        <a
+                            href="https://buymeacoffee.com/sarveshtalele" target="_blank" rel="noopener noreferrer"
+                            className="flex items-center gap-1.5 md:gap-2 px-4 md:px-6 py-2.5 md:py-3 rounded-[16px] md:rounded-[20px] bg-[#FFDD00]/20 border border-[#FFDD00]/40 text-[#0A4D44] hover:bg-[#FFDD00]/40 hover:text-[#135B52] transition-all duration-500 shadow-sm backdrop-blur-md group"
+                        >
+                            <Coffee className="w-4 h-4 md:w-5 md:h-5 group-hover:scale-110 transition-transform duration-500 ease-out" />
+                            <span className="text-xs md:text-sm font-bold">Buy Me a Coffee</span>
+                        </a>
                     </motion.div>
                 </div>
             </div>
@@ -111,10 +117,10 @@ export const HomePage = ({ navigate }) => {
                 {/* Top Row: 4 Metric Squares */}
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-8">
                     {[
-                        { label: 'AI Projects', val: MOCK_CMS.stats.aiProjects, icon: Briefcase, color: 'text-[#0A4D44]', route: 'projects' },
-                        { label: 'Awards & Honors', val: MOCK_CMS.stats.awards, icon: Award, color: 'text-[#135B52]', route: 'journey' },
-                        { label: 'Published Blogs', val: MOCK_CMS.stats.blogs, icon: PenTool, color: 'text-[#2C7A70]', route: 'blogs' },
-                        { label: 'Research Papers', val: MOCK_CMS.stats.researchPapers, icon: FileText, color: 'text-[#4A8B82]', route: 'knowledge' }
+                        { label: 'AI Projects', val: MOCK_CMS.stats.aiProjects, icon: Briefcase, color: 'text-[#0A4D44]', url: 'https://github.com/sarveshtalele' },
+                        { label: 'Awards & Honors', val: MOCK_CMS.stats.awards, icon: Award, color: 'text-[#135B52]', url: 'https://www.linkedin.com/in/sarveshtalele' },
+                        { label: 'Published Blogs', val: MOCK_CMS.stats.blogs, icon: PenTool, color: 'text-[#2C7A70]', url: 'https://medium.com/@sarveshtalele' },
+                        { label: 'Research Papers', val: MOCK_CMS.stats.researchPapers, icon: FileText, color: 'text-[#4A8B82]', url: 'https://scholar.google.com/citations?user=-4Vyig8AAAAJ&hl=en&authuser=2' }
                     ].map((stat, i) => (
                         <motion.div
                             key={i}
@@ -124,7 +130,7 @@ export const HomePage = ({ navigate }) => {
                             transition={{ delay: i * 0.15, duration: 0.8, ease: "easeOut" }}
                             whileHover={{ scale: 1.02 }}
                             whileTap={{ scale: 0.98 }}
-                            onClick={() => navigate(stat.route)}
+                            onClick={() => window.open(stat.url, '_blank')}
                             className="glass-card p-4 md:p-8 rounded-[24px] md:rounded-[32px] aspect-square flex flex-col items-center justify-center text-center group hover:bg-white/60 transition-all duration-700 relative cursor-pointer"
                         >
                             {/* BIG Number in Middle */}

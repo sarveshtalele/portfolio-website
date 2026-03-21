@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Leaf } from 'lucide-react';
 import { BreathingBackground } from './components/Shared';
@@ -51,15 +51,35 @@ const NatureOverlay = ({ isVisible }) => {
 
 // Pages
 import { HomePage } from './pages/Home';
-import { JourneyPage } from './pages/Journey';
-import { ProjectsPage } from './pages/Projects';
-import { KnowledgePage } from './pages/Knowledge';
-import { BlogsPage } from './pages/Blogs';
+import { RoadmapPage } from './pages/Roadmap';
 import { ContactPage } from './pages/Contact';
 
+const routeMap = { '/': 'home', '/roadmap': 'roadmap', '/contact': 'contact' };
+const pathMap = { home: '/', roadmap: '/roadmap', contact: '/contact' };
+
+function getRouteFromPath() {
+    const path = window.location.pathname.replace(/\/+$/, '') || '/';
+    return routeMap[path] || 'home';
+}
+
 export default function App() {
-    const [currentRoute, setCurrentRoute] = useState('home');
+    const [currentRoute, setCurrentRoute] = useState(getRouteFromPath);
     const [isNatureMode, setIsNatureMode] = useState(false);
+
+    const navigateTo = useCallback((route) => {
+        setCurrentRoute(route);
+        const newPath = pathMap[route] || '/';
+        if (window.location.pathname !== newPath) {
+            window.history.pushState({ route }, '', newPath);
+        }
+        window.scrollTo(0, 0);
+    }, []);
+
+    useEffect(() => {
+        const onPop = () => setCurrentRoute(getRouteFromPath());
+        window.addEventListener('popstate', onPop);
+        return () => window.removeEventListener('popstate', onPop);
+    }, []);
 
     const triggerNatureMode = () => {
         if (isNatureMode) return;
@@ -68,10 +88,7 @@ export default function App() {
     };
     const navItems = [
         { id: 'home', label: 'Overview' },
-        { id: 'journey', label: 'Journey' },
-        { id: 'projects', label: 'Projects' },
-        { id: 'knowledge', label: 'Publications' },
-        { id: 'blogs', label: 'Blogs' },
+        { id: 'roadmap', label: 'Roadmap' },
         { id: 'contact', label: 'Contact' }
     ];
 
@@ -84,14 +101,14 @@ export default function App() {
             <nav className="fixed top-4 md:top-8 left-1/2 -translate-x-1/2 z-50 px-2 md:px-3 py-2 md:py-3 glass-card rounded-full flex items-center gap-1 md:gap-2 overflow-x-auto w-[90vw] md:w-auto max-w-full shadow-lg scrollbar-hide">
                 <div
                     className="p-2 md:p-3 mr-1 md:mr-2 cursor-pointer rounded-full hover:bg-white/50 transition-colors shrink-0"
-                    onClick={() => { setCurrentRoute('home'); triggerNatureMode(); }}
+                    onClick={() => { navigateTo('home'); triggerNatureMode(); }}
                 >
                     <Leaf className="w-5 h-5 md:w-6 md:h-6 text-[#0A4D44]" />
                 </div>
                 {navItems.map(item => (
                     <button
                         key={item.id}
-                        onClick={() => setCurrentRoute(item.id)}
+                        onClick={() => navigateTo(item.id)}
                         className={`px-4 md:px-6 py-2 md:py-3 rounded-full text-xs md:text-sm lg:text-base font-bold transition-all whitespace-nowrap shrink-0 ${currentRoute === item.id
                             ? 'bg-[#0A4D44] text-white shadow-md scale-105'
                             : 'text-[#0A4D44]/70 hover:text-[#0A4D44] hover:bg-white/50'
@@ -105,11 +122,8 @@ export default function App() {
             {/* Main Routing Container */}
             <main className="min-h-screen flex flex-col relative z-10 w-full overflow-hidden">
                 <AnimatePresence mode="wait">
-                    {currentRoute === 'home' && <HomePage key="home" navigate={setCurrentRoute} />}
-                    {currentRoute === 'journey' && <JourneyPage key="journey" />}
-                    {currentRoute === 'projects' && <ProjectsPage key="projects" />}
-                    {currentRoute === 'knowledge' && <KnowledgePage key="knowledge" />}
-                    {currentRoute === 'blogs' && <BlogsPage key="blogs" />}
+                    {currentRoute === 'home' && <HomePage key="home" navigate={navigateTo} />}
+                    {currentRoute === 'roadmap' && <RoadmapPage key="roadmap" />}
                     {currentRoute === 'contact' && <ContactPage key="contact" />}
                 </AnimatePresence>
             </main>
