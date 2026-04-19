@@ -33,7 +33,7 @@ This guide provides step-by-step instructions for setting up the project locally
     ```
     The application will be available at `http://localhost:3000`.
 
----
+
 
 ## 2. Vercel Deployment
 
@@ -54,7 +54,7 @@ This guide provides step-by-step instructions for setting up the project locally
  Automatic Redeployment
 Vercel is connected to your GitHub repository. Every time you push changes to the `main` branch, Vercel will automatically trigger a new deployment.
 
----
+
 
 ## 3. Restoration Steps (If Local Folder is Deleted)
 
@@ -79,7 +79,6 @@ If your local project folder is accidentally deleted, follow these steps to rest
       ```
     - Check the Vercel dashboard to see the live deployment.
 
----
 
 ## 4. Troubleshooting
 - **CSS Not Loading**: Ensure Tailwind CSS is correctly initialized (usually handled by Vite).
