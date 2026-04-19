@@ -1,5 +1,5 @@
 export const MOCK_CMS = {
-    stats: { aiProjects: 5, awards: 8, blogs: 25, researchPapers: 3 },
+    stats: { aiProjects: 15, awards: 8, blogs: 31, researchPapers: 3 },
     journey: [
         {
             id: 1,

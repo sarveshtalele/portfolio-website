@@ -4,11 +4,11 @@ This guide provides step-by-step instructions for setting up the project locally
 
 ## 1. Local Setup Instructions
 
-### Prerequisites
+ Prerequisites
 - **Node.js**: Ensure you have Node.js installed (v18 or higher recommended).
 - **Git**: Ensure Git is installed for version control.
 
-### Steps
+ Steps
 1.  **Clone the Repository**:
     ```bash
     git clone https://github.com/sarveshtalele/portfolio-website.git
@@ -37,7 +37,7 @@ This guide provides step-by-step instructions for setting up the project locally
 
 ## 2. Vercel Deployment
 
-### Deploying for the First Time
+ Deploying for the First Time
 1.  **Push Code to GitHub**: Ensure your latest code is committed and pushed to your GitHub repository.
 2.  **Connect to Vercel**:
     - Go to [Vercel](https://vercel.com/) and log in.
@@ -51,7 +51,7 @@ This guide provides step-by-step instructions for setting up the project locally
     - Add the variables from your `.env` file (EmailJS keys and Gemini API key).
 5.  **Deploy**: Click **"Deploy"**. Vercel will automatically build and host your site.
 
-### Automatic Redeployment
+ Automatic Redeployment
 Vercel is connected to your GitHub repository. Every time you push changes to the `main` branch, Vercel will automatically trigger a new deployment.
 
 ---
